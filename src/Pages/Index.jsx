@@ -19,7 +19,7 @@ import logoX from "../image/login-group-27162.svg";
             <p className="text-neutral-50 font-inter text-base leading-normal font-medium">Join today.</p>
           </section>
           <a href="../src/Create_Your_Account_Step_1.html" className="w-full">
-            <Button text="Create Account" bg="white" />
+            <Button variant="default" text="Create Account" size="lg" />
           </a>
           <div className="flex items-center">
             <hr className="mr-2 flex-grow border-t-2 border-neutral-700" />
@@ -29,7 +29,7 @@ import logoX from "../image/login-group-27162.svg";
           <section className="flex flex-col gap-5">
             <p className="text-base font-medium leading-normal text-neutral-50">Already have an account?</p>
             <a href="../src/Home_Feed.html">
-              <Button varient="outline" text="Sign Up" />
+              <Button variant="outline" size="lg" text="Sign Up"  />
             </a>
           </section>
         </section>

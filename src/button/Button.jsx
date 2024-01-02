@@ -1,30 +1,43 @@
-export function Button ({bg = "white",varient = "default",text = "Add Your Button",disabled = false}){
-  // let{base,size,disabled} = props;
-  // console.log("props "+props);
-  const base = "flex justify-center items-center w-full px-6 py-2 rounded-4xl text-center font-inter text-base font-bold font-inter text-base font-bold hover:bg-neutral-200";
+import PropTypes from 'prop-types';
 
-  const bg_color = {
-    white : "bg-neutral-50",
-    blue : "bg-twitter-blue"
-  };
-  const size = {
-    sm : "",
-    md : "",
-    lg : ""
+export function Button({
+  bg = "white",
+  variant = "default",
+  size = "md",
+  text = "Add Your Button",
+  disabled = false,
+}) {
+  const bgColors = {
+    white: "bg-neutral-50",
+    blue: "bg-twitter-blue",
+  }
+
+  const buttonSize = {
+    sm: "",
+    md: "",
+    lg: "w-full"
   };
   const disabledButton = disabled ? "bg-neutral-500 cursor-not-allowed " : "";
 
-  const varientStyle = {
-    default : "",
-    outline : "border border-blue-250 shadow-08160 backdrop-blur-xl text-twitter-blue",
+  const variantStyle = {
+    default: " px-6 py-2 rounded-4xl text-center font-inter text-base font-bold  hover:bg-neutral-200",
+    outline: " px-6 py-2 rounded-4xl text-center font-inter text-base font-bold border border-blue-250 shadow-08160 backdrop-blur-xl text-twitter-blue",
   }
 
-  let classes = `${base} ${bg_color[bg]} ${varientStyle[varient]} `;
+  let classes = `${buttonSize[size]} ${bgColors[bg]} ${variantStyle[variant]}`;
+
   return (
-    <button className={classes} disabled = {disabled}>
+    <button className={classes} disabled={disabled}>
       {text}
     </button>
   );
-
 }
-export default Button
+
+Button.propTypes = {
+  variant: PropTypes.oneOf(["outline", "default"]),
+  text: PropTypes.string,
+  disabled: PropTypes.bool,
+  size: PropTypes.oneOf(["sm", "md", "lg"]),
+};
+
+export default Button;

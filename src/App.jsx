@@ -1,7 +1,12 @@
 
 import React from 'react';
+import {createBrowserRouter,RouterProvider}from "react-router-dom";
+import TweetBody from './components/TweetBody';
 import { Header, Main } from "./Pages/Index";
-import CreateAccountStep1 from './Pages/createAccountStep1';
+import CreateAccountStep1 from './Pages/CreateAccountStep1';
+import CreateAccountStep2 from './Pages/CreateAccountStep2';
+import CreateAccountStep3 from './Pages/CreateAccountStep3';
+import CreateAccountStep4 from './Pages/CreateAccountStep4';
 import InputField from './components/inputField';
 
  // function Header() {
@@ -40,13 +45,22 @@ import InputField from './components/inputField';
 //     )
 //   } 
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <div><TweetBody/></div>,
+  },
+]);
+
 function App() {
   return (
     <>
-    <div className="bg-black">
-    <Header/>
-    <Main/>
+    <RouterProvider router={router}/>
+    <div>
+    {/* <Header/>
+    <Main/> */}
     {/* <CreateAccountStep1/> */}
+    {/* <CreateAccountStep4/> */}
     {/* <InputField/> */}
     </div>
     </>
